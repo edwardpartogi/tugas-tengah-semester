@@ -10,10 +10,11 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {CompanionModel.class, WiseWords.class}, version = 2, exportSchema = false)
+@Database(entities = {CompanionModel.class, WiseWords.class, UserModel.class}, version = 3, exportSchema = false)
 public abstract class WiseCompanionRoomDatabase extends RoomDatabase {
     public abstract CompanionModelDao companionModelDao();
     public abstract WiseWordsDao wiseWordsDao();
+    public abstract UserDao userDao();
 
     private static WiseCompanionRoomDatabase INSTANCE;
 
@@ -53,6 +54,10 @@ public abstract class WiseCompanionRoomDatabase extends RoomDatabase {
     private static class PopulateDbAsync extends AsyncTask<Void, Void, Void> {
         private final CompanionModelDao mCompanionDao;
         private final WiseWordsDao mDao;
+        private final UserDao mUserDao;
+
+        // user data
+        String presenceTime = "0";
 
         // companion data
         String compName = "Guguk";
@@ -90,6 +95,7 @@ public abstract class WiseCompanionRoomDatabase extends RoomDatabase {
         PopulateDbAsync(WiseCompanionRoomDatabase db) {
             mDao = db.wiseWordsDao();
             mCompanionDao = db.companionModelDao();
+            mUserDao = db.userDao();
         }
 
         @Override
@@ -107,6 +113,9 @@ public abstract class WiseCompanionRoomDatabase extends RoomDatabase {
 
             CompanionModel newCompanion = new CompanionModel(compName, hungerLvl, affectionLvl);
             mCompanionDao.insert(newCompanion);
+
+            UserModel newUser = new UserModel(presenceTime);
+            mUserDao.insert(newUser);
             return null;
         }
     }
