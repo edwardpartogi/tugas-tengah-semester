@@ -2,7 +2,6 @@ package id.ac.ui.cs.mobileprogramming.edwardpga.wisecompanion;
 
 import android.app.Application;
 import android.os.AsyncTask;
-import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 
