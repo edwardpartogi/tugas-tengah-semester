@@ -11,6 +11,7 @@ import java.util.List;
 public class WiseCompanionRepository {
     private WiseWordsDao wiseWordsDao;
     private CompanionModelDao companionDao;
+    private UserDao userDao;
     private LiveData<List<WiseWords>> mAllWiseWords;
     private LiveData<List<CompanionModel>> mCompanion;
 
@@ -19,10 +20,30 @@ public class WiseCompanionRepository {
         WiseCompanionRoomDatabase db = WiseCompanionRoomDatabase.getDatabase(application);
         wiseWordsDao = db.wiseWordsDao();
         companionDao = db.companionModelDao();
+        userDao = db.userDao();
         mAllWiseWords = wiseWordsDao.getAllWiseWords();
         mCompanion = companionDao.getAllCompanion();
     }
 
+    // user
+    public void newUser(UserModel userModel){
+        new insertUserAsync(userDao).execute(userModel);
+    }
+
+    private static class insertUserAsync extends AsyncTask<UserModel, Void, Void> {
+
+        private UserDao mAsyncTaskDao;
+
+        insertUserAsync(UserDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(final UserModel... params) {
+            mAsyncTaskDao.insert(params[0]);
+            return null;
+        }
+    }
 
     // companions
     LiveData<List<CompanionModel>> getAllCompanion() {
