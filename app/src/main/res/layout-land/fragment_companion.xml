@@ -22,12 +22,12 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="212dp"
         android:layout_height="16dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginTop="120dp"
         android:max="10000"
         android:progress="6000"
         android:progressTint="#D0DF6060"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintHorizontal_bias="0.112"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -35,8 +35,8 @@
         android:id="@+id/hungryIcon"
         android:layout_width="40dp"
         android:layout_height="38dp"
-        android:layout_marginTop="272dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="12dp"
         android:src="@drawable/ic_hungry_bar"
         app:layout_constraintEnd_toStartOf="@+id/hungerBar"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,7 +45,7 @@
         android:id="@+id/affectionIcon"
         android:layout_width="40dp"
         android:layout_height="38dp"
-        android:layout_marginTop="316dp"
+        android:layout_marginTop="108dp"
         android:layout_marginEnd="4dp"
         android:src="@drawable/ic_affection_bar"
         app:layout_constraintEnd_toStartOf="@+id/affectionBar"
@@ -56,12 +56,12 @@
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="212dp"
         android:layout_height="16dp"
-        android:layout_marginTop="328dp"
+        android:layout_marginTop="120dp"
         android:max="10000"
         android:progress="1000"
         android:progressTint="#D06460DF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,7 +74,7 @@
         android:text="@string/feed_btn"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/affectionBar" />
 
@@ -82,20 +82,20 @@
         android:id="@+id/askBtn"
         android:layout_width="216dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="157dp"
         android:backgroundTint="#00FFFFFF"
         android:text="@string/ask_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/feedBtn" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/ageLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="4dp"
         android:text="@string/age_label"
         android:textColor="#000000"
         app:layout_constraintEnd_toStartOf="@+id/ageValue"
@@ -105,13 +105,12 @@
         android:id="@+id/ageValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="244dp"
         android:text="@string/age_label"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.557"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/companion_name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/resetBtn"
@@ -142,11 +141,10 @@
         android:id="@+id/realAgeView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="265dp"
+        android:layout_marginTop="276dp"
         android:text="@string/app_name"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
