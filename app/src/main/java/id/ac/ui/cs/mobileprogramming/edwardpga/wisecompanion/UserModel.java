@@ -25,4 +25,12 @@ public class UserModel {
     public void setPresence_time(@NonNull String presence_time) {
         this.presence_time = presence_time;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
