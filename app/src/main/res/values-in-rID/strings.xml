@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pendamping Bijak</string>
+    <string name="hello_blank_fragment">Halo fragment kosong</string>
+    <string name="companion">Pendamping</string>
+    <string name="achievement_nav">Kenangan</string>
+    <string name="configuration_nav">Pengaturan</string>
+    <string name="age_label">Umur:</string>
+    <string name="feed_btn">Beri Makan</string>
+    <string name="ask_btn">Tanya</string>
+    <string name="reset_btn">Reset</string>
+</resources>

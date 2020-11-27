@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/companion_nav"
+        android:icon="@drawable/ic_pet"
+        android:title="@string/companion"/>
+
+    <item
+        android:id="@+id/achievement_nav"
+        android:icon="@drawable/ic_achievement"
+        android:title="@string/achievement_nav"/>
+
+    <item
+        android:id="@+id/configuration_nav"
+        android:icon="@drawable/ic_configuration"
+        android:title="@string/configuration_nav"/>
+</menu>
