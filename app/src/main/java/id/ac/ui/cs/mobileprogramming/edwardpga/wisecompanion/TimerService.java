@@ -54,8 +54,6 @@ public class TimerService extends LifecycleService {
         mCompanionViewModel = new CompanionViewModel(getApplication());
         mCompanion = mCompanionViewModel.getAllCompanionModel().get(0);
 
-        counter = intent.getLongExtra("startingCounter", -100);
-
         mCompanionViewModel.getAllCompanion().observe(this, new Observer<List<CompanionModel>>() {
 
             @Override
@@ -70,6 +68,7 @@ public class TimerService extends LifecycleService {
             }
         });
 
+        counter = intent.getLongExtra("startingCounter", -100);
         mHandler.removeCallbacks(startTimer);
         mHandler.postDelayed(startTimer, 0);
 

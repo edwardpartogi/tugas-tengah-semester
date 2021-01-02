@@ -80,7 +80,6 @@ public class CompanionFragment extends Fragment {
             public void onClick(View v) {
                 int currHungerLvl = (int) mCompanion.getHungerLevel();
                 mCompanionViewModel.setHungerLevel(mCompanion, Math.min(hungerBar.getMax(), currHungerLvl+800));
-                timerIntent.putExtra("startingHungerLvl", mCompanion.getHungerLevel());
                 hungerBar.setProgress((int) mCompanion.getHungerLevel());
             }
         });
