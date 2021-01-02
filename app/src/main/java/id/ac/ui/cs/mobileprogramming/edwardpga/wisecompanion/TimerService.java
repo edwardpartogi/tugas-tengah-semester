@@ -19,6 +19,9 @@ import java.util.List;
 
 public class TimerService extends LifecycleService {
     private long counter;
+    private long stackedHunger = 150;
+    private long stackedAffection = 100;
+
     private final int REFRESH_RATE = 1000;
 
     public static final String TIMER_BROADCAST = "TimerCounting";
@@ -50,9 +53,8 @@ public class TimerService extends LifecycleService {
     public int onStartCommand(Intent intent, int flags, int startId) {
         mCompanionViewModel = new CompanionViewModel(getApplication());
         mCompanion = mCompanionViewModel.getAllCompanionModel().get(0);
-        long startingAge = mCompanion.getAge();
 
-        counter = (intent.getLongExtra("startingCounter", startingAge));
+        counter = intent.getLongExtra("startingCounter", -100);
 
         mCompanionViewModel.getAllCompanion().observe(this, new Observer<List<CompanionModel>>() {
 
@@ -116,21 +118,19 @@ public class TimerService extends LifecycleService {
         @Override
         public void run() {
             counter += 1;
-
-            mCompanionViewModel.setAge(mCompanion, counter);
-
-            long affectionLvl = mCompanion.getAffectionLevel();
-            long hungerLvl = mCompanion.getHungerLevel();
-
-            mCompanionViewModel.setHungerLevel(mCompanion, Math.max(0, hungerLvl-150));
+            broadcastIntent.putExtra("counter", counter);
 
             if (MainActivity.isPaused()) {
-                mCompanionViewModel.setAffectionLevel(mCompanion, Math.max(0, affectionLvl-150));
+                stackedHunger += 150;
+                stackedAffection -= 150;
             } else {
-                mCompanionViewModel.setAffectionLevel(mCompanion, Math.min(10000, affectionLvl+100));
+                stackedHunger = 150;
+                stackedAffection = 100;
             }
+            broadcastIntent.putExtra("stackedHunger", stackedHunger);
+            broadcastIntent.putExtra("stackedAffection", stackedAffection);
 
-            broadcastIntent.putExtra("counter", counter);
+
             sendBroadcast(broadcastIntent);
             mHandler.postDelayed(this, REFRESH_RATE);
         }

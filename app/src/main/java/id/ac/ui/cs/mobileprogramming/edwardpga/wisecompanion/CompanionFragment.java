@@ -80,6 +80,7 @@ public class CompanionFragment extends Fragment {
             public void onClick(View v) {
                 int currHungerLvl = (int) mCompanion.getHungerLevel();
                 mCompanionViewModel.setHungerLevel(mCompanion, Math.min(hungerBar.getMax(), currHungerLvl+800));
+                timerIntent.putExtra("startingHungerLvl", mCompanion.getHungerLevel());
                 hungerBar.setProgress((int) mCompanion.getHungerLevel());
             }
         });
@@ -115,11 +116,6 @@ public class CompanionFragment extends Fragment {
 
                 long age = mCompanion.getAge();
                 ageView.setText(getResources().getString(R.string.companion_age, (age/ONE_YEAR)));
-//                if (language.equals("Indonesia")) {
-//                    ageView.setText((age/ONE_YEAR) + " tahun");
-//                }else {
-//                    ageView.setText((age/ONE_YEAR) + " years old");
-//                }
 
                 hungerBar.setProgress((int) companions.get(0).getHungerLevel());
                 affectionBar.setProgress((int) companions.get(0).getAffectionLevel());
@@ -137,8 +133,17 @@ public class CompanionFragment extends Fragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             long counter = intent.getLongExtra("counter", -1);
+            mCompanionViewModel.setAge(mCompanion, counter);
 
             realAgeView.setText(getResources().getString(R.string.real_time_age, counter));
+
+            long stackedHunger = intent.getLongExtra("stackedHunger", 100000);
+            long newHungerLvl = mCompanion.getHungerLevel()-stackedHunger;
+            mCompanionViewModel.setHungerLevel(mCompanion, Math.max(0, newHungerLvl));
+
+            long stackedAffection = intent.getLongExtra("stackedAffection", 100000);
+            long newAffectionLvl = mCompanion.getAffectionLevel()+stackedAffection;
+            mCompanionViewModel.setAffectionLevel(mCompanion, Math.min(Math.max(0, newAffectionLvl), 10000));
 
         }
     };
