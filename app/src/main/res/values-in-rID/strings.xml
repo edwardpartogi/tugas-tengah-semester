@@ -13,4 +13,15 @@
     <string name="companion_age">%1$d tahun</string>
     <string name="zero_stat_notif">Teman bijakmu kesepian dan membutuhkan kehadiranmu..</string>
     <string name="zero_stat_notif_title">Wise Companion mendambakan cinta dan perhatianmu</string>
+    <string name="wifi_stat_label">Status WiFi</string>
+    <string name="wifi_stat">%1$s
+
+        Info Koneksi
+        --------------------------------------
+        %2$s
+
+        Jaringan tersambung: %3$s
+        Active Network Metered: %4$s</string>
+    <string name="wifi_stat_btn">Periksa</string>
+    <string name="permission_denied_msg">Akses diperlukan untuk mengecek koneksi internet Wise Companion</string>
 </resources>

@@ -12,4 +12,13 @@
     <string name="companion_age">%1$d years old</string>
     <string name="zero_stat_notif">Your wise companion feels lonely and need your presence to be there..</string>
     <string name="zero_stat_notif_title">Wise Companion needs love and attention!</string>
+    <string name="wifi_stat_label">WiFi Status</string>
+    <string name="wifi_stat">SSID : %1$s\n
+        Connectivity Info\n
+        --------------------------------------\n
+        %2$s\n\n
+        Network is connected: %3$s\n
+        Active Network Metered: %4$s</string>
+    <string name="wifi_stat_btn">Check</string>
+    <string name="permission_denied_msg">You need to allow access to check if Wise Companion is connected to the internet</string>
 </resources>
