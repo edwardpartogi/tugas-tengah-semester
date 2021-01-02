@@ -11,4 +11,6 @@
     <string name="reset_btn">Reset</string>
     <string name="real_time_age">Umur real-time: %1$d s.</string>
     <string name="companion_age">%1$d tahun</string>
+    <string name="zero_stat_notif">Teman bijakmu kesepian dan membutuhkan kehadiranmu..</string>
+    <string name="zero_stat_notif_title">Wise Companion mendambakan cinta dan perhatianmu</string>
 </resources>

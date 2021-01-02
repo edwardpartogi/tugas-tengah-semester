@@ -138,13 +138,18 @@ public class CompanionFragment extends Fragment {
             realAgeView.setText(getResources().getString(R.string.real_time_age, counter));
 
             long stackedHunger = intent.getLongExtra("stackedHunger", 100000);
-            long newHungerLvl = mCompanion.getHungerLevel()-stackedHunger;
+            long newHungerLvl = addLongValue(mCompanion.getHungerLevel(), -stackedHunger);
             mCompanionViewModel.setHungerLevel(mCompanion, Math.max(0, newHungerLvl));
 
             long stackedAffection = intent.getLongExtra("stackedAffection", 100000);
-            long newAffectionLvl = mCompanion.getAffectionLevel()+stackedAffection;
+            long newAffectionLvl = addLongValue(mCompanion.getAffectionLevel(), stackedAffection);
             mCompanionViewModel.setAffectionLevel(mCompanion, Math.min(Math.max(0, newAffectionLvl), 10000));
 
         }
     };
+
+    static {
+        System.loadLibrary("native-lib");
+    }
+    public native long addLongValue(long val1, long val2);
 }
