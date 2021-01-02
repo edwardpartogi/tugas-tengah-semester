@@ -80,14 +80,10 @@ public class TimerService extends LifecycleService {
     }
 
     private void createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             int importance = NotificationManager.IMPORTANCE_DEFAULT;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID,
                     "CompanionNotification", importance);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
             notificationManager = this.getSystemService(NotificationManager.class);
             notificationManager.createNotificationChannel(channel);
         }
@@ -101,8 +97,10 @@ public class TimerService extends LifecycleService {
         );
         mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_pet)
-                .setContentTitle("Wise Companion needs love and attention!")
-                .setContentText("Your wise companion feels lonely and need your presence to be there..")
+                .setContentTitle(getResources().getString(R.string.zero_stat_notif_title))
+                .setContentText(getResources().getString(R.string.zero_stat_notif))
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(getResources().getString(R.string.zero_stat_notif)))
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(resultPendingIntent)
                 .setAutoCancel(true);
