@@ -114,11 +114,12 @@ public class CompanionFragment extends Fragment {
                 mCompanion = companions.get(0);
 
                 long age = mCompanion.getAge();
-                if (language.equals("Indonesia")) {
-                    ageView.setText((age/ONE_YEAR) + " tahun");
-                }else {
-                    ageView.setText((age/ONE_YEAR) + " years old");
-                }
+                ageView.setText(getResources().getString(R.string.companion_age, (age/ONE_YEAR)));
+//                if (language.equals("Indonesia")) {
+//                    ageView.setText((age/ONE_YEAR) + " tahun");
+//                }else {
+//                    ageView.setText((age/ONE_YEAR) + " years old");
+//                }
 
                 hungerBar.setProgress((int) companions.get(0).getHungerLevel());
                 affectionBar.setProgress((int) companions.get(0).getAffectionLevel());
@@ -137,12 +138,7 @@ public class CompanionFragment extends Fragment {
         public void onReceive(Context context, Intent intent) {
             long counter = intent.getLongExtra("counter", -1);
 
-            if (language.equals("Indonesia")){
-                Log.d("NBASSHASA", "onReceive: "+language);
-                realAgeView.setText("Umur real-time: "+counter+" s.");
-            }else {
-                realAgeView.setText("Real-time age: "+counter+" s.");
-            }
+            realAgeView.setText(getResources().getString(R.string.real_time_age, counter));
 
         }
     };

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Wise Companion</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="companion">Companion</string>
     <string name="achievement_nav">Memories</string>
@@ -9,4 +8,6 @@
     <string name="feed_btn">Feed</string>
     <string name="ask_btn">Ask</string>
     <string name="reset_btn">Reset</string>
+    <string name="real_time_age">Real-time age: %1$d s.</string>
+    <string name="companion_age">%1$d years old</string>
 </resources>
